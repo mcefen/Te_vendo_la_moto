@@ -1,6 +1,6 @@
 # TE VENDO LA MOTO
 - ## Descripción de la aplicación WEB
-La aplicacion gestiona la venta de motos nuevas y de segunda mano, el usuario puede ver el catálogo de las motos sin registro, para poder ver los precios, hacer una oferta para los motos de segunda mano  o comprar una moto nueva debe registrarse e iniciar sesión.
+La aplicacion gestiona la venta de motos de segunda mano entre usuarios registrados, el usuario puede ver el catálogo de las motos sin registro, para poder ver los precios, hacer una oferta para los motos de segunda mano  o comprar una moto debe registrarse e iniciar sesión.
 
 - ## Nombre y descripción de las entidades 
 
@@ -13,10 +13,6 @@ La aplicacion gestiona la venta de motos nuevas y de segunda mano, el usuario pu
 - VENTA --> Registra la venta y da de baja la moto del catálogo.
 
 - MOTO --> Registra todas las motos del catálogo con sus caracteristicas, crea y da de baja las motos del catálogo. Tiene dos clases hijas,
-
-  --> MOTO NUEVA
-
-  --> MOTO SEGUNDA MANO
 
 - CATALOGO --> Gestiona el catálogo de las motos en stock
 
