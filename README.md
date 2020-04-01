@@ -20,7 +20,7 @@ La aplicacion gestiona la venta de motos de segunda mano entre usuarios registra
 
 - Damián Ortiz Barahona --> d.ortizb@alumnos.urjc.es 
 -->Cuenta GIT : diortizba1984
-- Antonio Vizcaino Moraga --> a.vizcainom@alumnos.urjc.es --> Cuenta Git : viz7mor
+- Antonio Vizcaino Moraga --> a.vizcainom@alumnos.urjc.es --> Cuenta Git : mcefen
 
 ##Tablero TRELLO
 - https://trello.com/b/BlmwYZA0/te-vendo-la-moto
