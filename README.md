@@ -25,4 +25,5 @@ La aplicacion gestiona la venta de motos de segunda mano entre usuarios registra
 ##Tablero TRELLO
 - https://trello.com/b/BlmwYZA0/te-vendo-la-moto
 
-
+## NUEVO ANUNCIO
+https://drive.google.com/file/d/1cXaNLpCNy_ThuyM9Gc7hSNS62b-1JZDY/view?usp=sharin
