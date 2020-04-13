@@ -1,7 +1,7 @@
-# TE VENDO LA MOTO
+# **TE VENDO LA MOTO**
 - ## Descripción de la aplicación WEB
 La aplicacion gestiona la venta de motos de segunda mano entre usuarios registrados, el usuario puede ver el anuncio de otro usuario y hacer una oferta por una moto, el usuario vendedor puede aceptar la oferta y vender o rechazarla.
-Los ususarios sin registro solo pueden registrarse o hacer login para iniciar sesión.
+Los usuarios sin registro solo pueden registrarse o hacer login para iniciar sesión.
 Un Administardor puede borrar anuncios que no cumplan la normativa o dar de baja a usuarios. Además tiene las opciones de los usuarios normales como crear anuncio o ver las ofertas.
 
 - ## Nombre y descripción de las entidades 
@@ -47,9 +47,43 @@ https://app.genmymodel.com/api/projects/_THav0G2HEemzHvNogvRQlA/diagrams/_THav02
 ####- Diagrama Entidad-Relacion
 
 
-![entidad_relacion](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/ERD.TVM.jpg)ç
+![entidad_relacion](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/ERD.TVM.jpg)
 
 ##INSTRUCCIONES PARA DESPLEGAR LA APLICACION
+
+- Los Requisitos para ejecutar la aplicacion son:
+
+    - Java 11
+    - Open JDK JAVA 11
+    - Mysql 5.7.29
+
+- Verificamos que nuestro proyecto sea MAVEN en el archivo POM
+
+![pom_maven](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/maven.png)
+
+- Verificamos que el packaging sea JAR en el archivo POM
+
+![pom_jar](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/jar.png)
+
+- Creamos el ejecutable JAR  
+    1.- En el menu RUN seleccionamos RUN AS  
+    2.- En el desplegable seleccionamos MAVEN BUILD  
+    3.- Dentro de la ventana escribimos package
+
+![package](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/package.png)
+
+- Cuando se genere el archivo JAR verificamos la ubicacion 
+
+![package](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/ruta.png)
+
+- Buscamos el archivo jar que se ha creado
+
+![package](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/Archivo_JAR.png)
+  
+Ejecutamos el archivo y la aplicacion entrara en fucionamiento.
+
+
+
 
 
 
