@@ -29,21 +29,29 @@ Un Administardor puede borrar anuncios que no cumplan la normativa o dar de baja
 
 ##DIAGRAMAS: 
 ###- CAPTURAS DE PANTALLA:
+
 Mediante una presentación mostramos las diferentes pantallas que hemos creado con una secuencia lógica, el enlace URL es:
 
 https://prezi.com/view/czPqNnc1nodJ6b7VZiIk/
 
 ###- DIAGRAMA DE NAVEGACION
-
-![Diagrama de navegación](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/ERD.TVM.jpg)
+![diagrama_navegación](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/diagrama_navegacion.JPG)
 
 ###- MODELO DE DATOS:
+
 ####- Diagrama de clases UML
+
 https://app.genmymodel.com/api/projects/_THav0G2HEemzHvNogvRQlA/diagrams/_THav022HEemzHvNogvRQlA/svg
 
 ####- Diagrama Entidad-Relacion
 
-![entidad_relacion](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/diagrama_navegacion.JPG)
+
+![entidad_relacion](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/ERD.TVM.jpg)ç
+
+##INSTRUCCIONES PARA DESPLEGAR LA APLICACION
+
+
+
 
 
 
