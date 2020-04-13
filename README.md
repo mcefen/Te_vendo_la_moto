@@ -1,20 +1,22 @@
 # TE VENDO LA MOTO
 - ## Descripción de la aplicación WEB
-La aplicacion gestiona la venta de motos de segunda mano entre usuarios registrados, el usuario puede ver el catálogo de las motos sin registro, para poder ver los precios, hacer una oferta para los motos de segunda mano  o comprar una moto debe registrarse e iniciar sesión.
+La aplicacion gestiona la venta de motos de segunda mano entre usuarios registrados, el usuario puede ver el anuncio de otro usuario y hacer una oferta por una moto, el usuario vendedor puede aceptar la oferta y vender o rechazarla.
+Los ususarios sin registro solo pueden registrarse o hacer login para iniciar sesión.
+Un Administardor puede borrar anuncios que no cumplan la normativa o dar de baja a usuarios. Además tiene las opciones de los usuarios normales como crear anuncio o ver las ofertas.
 
 - ## Nombre y descripción de las entidades 
 
-- ADMINISTRADOR --> Gestiona las altas, bajas de los usuarios, gestiona las ofertas y las ventas. Da de alta las motos y gestiona el catálogo.
+- ADMINISTRADOR --> Gestiona las altas, bajas de los usuarios, gestiona las ofertas y las ventas. Da de alta las motos y gestiona los anuncios.
 
-- USUARIO --> Puede ver el catálogo sin registro, para realizar una oferta de una moto de segunda mano o comprar una moto nueva debe registrarse e iniciar sesión.
+- USUARIO --> Para ver los anuncios debe estar registrado, para realizar una oferta de una moto de segunda mano o comprar una moto nueva debe registrarse e iniciar sesión.
 
 - COMPRA --> Esta entidad registra una compra por parte del usuario
 
 - VENTA --> Registra la venta y da de baja la moto del catálogo.
 
-- MOTO --> Registra todas las motos del catálogo con sus caracteristicas, crea y da de baja las motos del catálogo. Tiene dos clases hijas,
+- MOTO --> Registra todas las motos del catálogo con sus caracteristicas, crea y da de baja las motos del catálogo. 
 
-- CATALOGO --> Gestiona el catálogo de las motos en stock
+
 
 ## INTEGRANTES DEL EQUIPO
 
@@ -24,5 +26,25 @@ La aplicacion gestiona la venta de motos de segunda mano entre usuarios registra
 
 ##Tablero TRELLO
 - https://trello.com/b/BlmwYZA0/te-vendo-la-moto
+
+##DIAGRAMAS: 
+###- CAPTURAS DE PANTALLA:
+Mediante una presentación mostramos las diferentes pantallas que hemos creado con una secuencia lógica, el enlace URL es:
+
+https://prezi.com/view/czPqNnc1nodJ6b7VZiIk/
+
+###- DIAGRAMA DE NAVEGACION
+
+![Diagrama de navegación](file:///C:/Users/Damian/Pictures/diagrama_navegacion.JPG)
+
+###- MODELO DE DATOS:
+####- Diagrama de clases UML
+https://app.genmymodel.com/api/projects/_THav0G2HEemzHvNogvRQlA/diagrams/_THav022HEemzHvNogvRQlA/svg
+
+####- Diagrama Entidad-Relacion
+
+![entidad_relacion](file:///C:/Users/Damian/Pictures/ERD.TVM.jpg)
+
+
 
 
