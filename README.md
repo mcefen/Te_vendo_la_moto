@@ -35,7 +35,7 @@ https://prezi.com/view/czPqNnc1nodJ6b7VZiIk/
 
 ###- DIAGRAMA DE NAVEGACION
 
-![Diagrama de navegación](file:///C:/Users/Damian/Pictures/diagrama_navegacion.JPG)
+![Diagrama de navegación](file:///Diagramas/diagrama_navegacion.JPG)
 
 ###- MODELO DE DATOS:
 ####- Diagrama de clases UML
@@ -43,7 +43,7 @@ https://app.genmymodel.com/api/projects/_THav0G2HEemzHvNogvRQlA/diagrams/_THav02
 
 ####- Diagrama Entidad-Relacion
 
-![entidad_relacion](file:///C:/Users/Damian/Pictures/ERD.TVM.jpg)
+![entidad_relacion](file:///Diagramas/ERD.TVM.jpg)
 
 
 
