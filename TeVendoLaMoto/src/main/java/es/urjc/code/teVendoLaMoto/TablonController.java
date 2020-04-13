@@ -1,8 +1,6 @@
 package es.urjc.code.teVendoLaMoto;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,13 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+//import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import es.urjc.code.teVendoLaMoto.Anuncio;
 import es.urjc.code.teVendoLaMoto.AnuncioRepository;
@@ -29,6 +31,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 
 	
 	@Controller
+	//@RestController
 	public class TablonController {
 		
 		//Si se abre la URL http://127.0.0.1:8080/h2-console y se configura
@@ -57,14 +60,14 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 			/*Rellenamos la base con un administrador, dos usuarios que venden y un usuario que va a realizar la compra*/
 			
 			
-			User u1 = new User("dortiz","pass","Damian Ortiz Barahona","50574692D","demn007@gmail.com","648799392","ROLE_USER");
-			User u2 = new User("prodriguez","pass","Paula Rodriguez de Zoluaga","73263327S","prr.zoluaga@wanadoo.com","64537872", "ROLE_USER");
-			User u3 = new User("btercero","pass","Benedicto tercero","59563719W","benedict@plus.com","634522718","ROLE_USER"); 
-			User u4 = new User("pptoledo","pass","Pedro Toledo","83826171S","pptole@gmail.com","739993816","ROLE_USER", "ROLE_ADMIN");
-			User u5 = new User("armando","pass","Armando Elslam ","83826171S","sta@plas.com","7651591","ROLE_USER");
+			User u1 = new User("dortiz","dortizpass","Damian Ortiz Barahona","50574692D","demn007@gmail.com","648799392","ROLE_USER");
+			User u2 = new User("prodriguez","prodriguezpass","Paula Rodriguez de Zoluaga","73263327S","prr.zoluaga@wanadoo.com","64537872", "ROLE_USER");
+			User u3 = new User("btercero","bterceropass","Benedicto tercero","59563719W","benedict@plus.com","634522718","ROLE_USER"); 
+			User u4 = new User("pptoledo","pptoledopass","Pedro Toledo","83826171S","pptole@gmail.com","739993816","ROLE_USER", "ROLE_ADMIN");
+			User u5 = new User("armando","armandopass","Armando Elslam ","83826171S","sta@plas.com","7651591","ROLE_USER");
 			
 		
-			/*Insertamos 2 coches*/
+			/*Insertamos 2 motos*/
 			
 			Moto c1 = new Moto("0830DTJ", "YAMAHA","YZF-R6","NEGRA",600,30.000,2009,12000.00,u5);
 			Moto c2 = new Moto("2052GCP", "HONDA","CBR1000RR Fireblade","BLANCO",250,10.000,2011,15000.00,u2);
@@ -120,27 +123,39 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 		
 
 		@RequestMapping("/")
-		public String tablon(Model model, Pageable page,HttpServletRequest request) {
+		public String tablon(Model model, Pageable page, HttpServletRequest request) {
 
+			//String nombre = request.getUserPrincipal().getName();
 			model.addAttribute("anuncios", repository.findAll(page));
 			model.addAttribute("usuarios", usuarioRepository.count());
+			//model.addAttribute("usuarios",usuarioRepository.findByEmail(nombre));
 			model.addAttribute("motos", motoRepository.count());
+			model.addAttribute("ofertaCompra", ofertaCompraRepository.count());
+			model.addAttribute("venta", ventaRepository.count());
+			model.addAttribute("user", request.isUserInRole("USER"));
 			model.addAttribute("admin", request.isUserInRole("ADMIN"));
+			
 			return "index";
 		}
 		
-	    @GetMapping("/login")
+	   /*@GetMapping("/login")
 	    public String login() {
 	    	return "login";
 	    }
+		/*@RequestMapping (value="/login", method={RequestMethod.POST,RequestMethod.GET})
+		public String login(Model model, HttpServletRequest request) {
+			CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+			model.addAttribute("token", token.getToken());
+			return "login";
+		}*/
 	    
-	    @GetMapping("/logout")
+	    /*@GetMapping("/logout")
 	    public String logout() {
 	    	return "logout";
-	    }
+	    }*/
 	    
 	    /*he modificado*/
-	    @GetMapping("/eliminarUsuario")
+	    /*@GetMapping("/eliminarUsuario")
 	    public String eliminarUsuario() {
 	    	return "eliminarUsuario";
 	    }
@@ -160,9 +175,9 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 	    @GetMapping("/nuevoAnuncio")
 	    public String nuevoAnuncio() {
 	    	return "anuncioNuevo";
-	    }
+	    }*/
 	    /*He modificado este apartado*/
-	    @GetMapping("/admin")
+	    /*@GetMapping("/admin")
 	    public String adminpane(Model model, Pageable page,HttpServletRequest request) {
 	    	
 
@@ -170,26 +185,27 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 			model.addAttribute("anunciosCount", repository.count());
 			model.addAttribute("usuarios", usuarioRepository.count());
 			model.addAttribute("motos", motoRepository.count());
-			model.addAttribute("admin", request.isUserInRole("ADMIN"));
+			model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 			
 	    	return "admin";
-	    }
+	    }*/
 	    
-	    @GetMapping("/loginerror")
+	    /*@GetMapping("/error_login")
 	    public String loginerror() {
-	    	return "loginerror";
-	    }
+	    	return "error_login";
+	    } */   
 	    
-	    @GetMapping("/bienvenida_login")
+	    /*@RequestMapping("/bienvenidalogin")
 	    public String bienvenidaLogin() {
-	    	return "bienvenida_login";
-	    }
+	    	return "bienvenidalogin";
+	    }*/
 		
 		@RequestMapping("/ver_ofertas")
 		public String tablon(Model model,HttpServletRequest request) {
 			String nombre = request.getUserPrincipal().getName();
 			User u = usuarioRepository.findByName(nombre);
 			model.addAttribute("ofertas", ofertaCompraRepository.findByVendedor(u));
+			
 			return "ver_ofertas";
 		}
 
@@ -217,7 +233,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 
 		}
 		
-		@RequestMapping("/nuevoUsuario")
+		@RequestMapping("/usuario/nuevo")
 		public String nuevoUsuario(Model model,@RequestParam String name,@RequestParam String password, @RequestParam String nombre_completo, 
 				@RequestParam String dni,@RequestParam String email,@RequestParam String telefono, HttpServletRequest request) {
 
@@ -244,7 +260,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 		public String nuevoAnuncio(Model model, Moto moto) {
 
 			motoRepository.save(moto);
-			return "anuncioNuevo";
+			return "nuevoAnuncio";
 
 		}
 		
@@ -296,7 +312,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 					ofertaCompraRepository.delete(str);
 				}
 			
-			return ("venta_realizada");
+			return "venta_realizada";
 		}
 		
 		
@@ -320,9 +336,9 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 		}
 		
 		@RequestMapping("/eliminarUsuario")
-		public String eliminaUsuario(Model model, @RequestParam String username)
+		public String eliminaUsuario(Model model, @RequestParam String name)
 		{
-			User usu = usuarioRepository.findByName(username);
+			User usu = usuarioRepository.findByName (name);
 			usuarioRepository.deleteById(usu.getId());
 			return "usuario_eliminado";
 			
@@ -341,7 +357,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 			
 		}
 		
-		@RequestMapping("admin/usuario/nuevo")
+		/*@RequestMapping("admin/usuario/nuevo")
 		public String nuevosUsuario(Model model,@RequestParam String name,@RequestParam String password, @RequestParam String nombre_completo, 
 				@RequestParam String dni,@RequestParam String email,@RequestParam String telefono) {
 
@@ -352,9 +368,9 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 
 			
 			return "usuario_guardado";
-		}
+		}*/
 		
-		@RequestMapping("/admin/anuncio/nuevo")
+		/*@RequestMapping("/admin/anuncio/nuevo")
 		public String nuevosAnuncio(Model model, @RequestParam String nombre, 
 				@RequestParam String asunto,@RequestParam String matricula,@RequestParam String marca,
 				@RequestParam String modelo,@RequestParam String color,@RequestParam int cilindrada, @RequestParam double kilometros,@RequestParam int anioMatriculacion,
@@ -376,7 +392,7 @@ import es.urjc.code.teVendoLaMoto.UserRepository;
 			
 			return "anuncio_guardado";
 
-		}
+		}*/
 	
 	}
 	

@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
@@ -21,17 +23,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     	http.authorizeRequests().antMatchers("/").permitAll();
     	http.authorizeRequests().antMatchers("/nuevoUsuario").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/loginerror").permitAll();
+                   
+        http.authorizeRequests().antMatchers("/bienvenidalogin").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
-        http.authorizeRequests().antMatchers("/bienvenida_login").permitAll();
+        http.authorizeRequests().antMatchers("/ver_ofertas").permitAll();
+        //http.authorizeRequests().antMatchers("/anuncio/{id}").permitAll();
+        http.authorizeRequests().antMatchers("/errorlogin").permitAll();
 
-        // Private pages (all other pages)
+        // Private pages (all other pages) para los usuarios
         http.authorizeRequests().antMatchers("/nuevoAnuncio").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/oferta").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/anuncio/{id}").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/verofertas").hasAnyRole("USER");
+        
         //Exclusivas del Admin
-        http.authorizeRequests().antMatchers("admin/borrar_anuncio").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("admin/eliminarUsuario").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN","USER");
+        //http.authorizeRequests().antMatchers("admin/eliminarUsuario").hasAnyRole("ROLE_ADMIN");
     
         //http.authorizeRequests().anyRequest().authenticated();
         
@@ -39,16 +46,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/login");
         http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/bienvenida_login");
-        
-        
-        http.formLogin().failureUrl("/loginerror");
+        http.formLogin().defaultSuccessUrl("/bienvenidalogin");     
+        http.formLogin().failureUrl("/errorlogin");
 
         // Logout
         //http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/logout");
         
-        // Disable CSRF at the moment
+        // Disable CSRF at the moment, si lo activo me da error 404
         //http.csrf().disable();
     }
 
