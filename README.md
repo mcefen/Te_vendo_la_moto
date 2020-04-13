@@ -35,6 +35,7 @@ Mediante una presentación mostramos las diferentes pantallas que hemos creado c
 https://prezi.com/view/czPqNnc1nodJ6b7VZiIk/
 
 ###- DIAGRAMA DE NAVEGACION
+
 ![diagrama_navegación](https://github.com/diortizba1984/Te_vendo_la_moto/blob/master/Diagramas/diagrama_navegacion.JPG)
 
 ###- MODELO DE DATOS:
