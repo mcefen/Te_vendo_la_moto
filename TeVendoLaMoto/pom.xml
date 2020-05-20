@@ -20,8 +20,18 @@
   <sonar.organization> mcefen </sonar.organization>
   <sonar.host.url> https://sonarcloud.io </sonar.host.url>
   <sonar.login> 79dfdcb450a5fe56ee336ad75e9a714ec0ba66a6 </sonar.login>
-	</properties>
+	</properties> 
+	<properties>
+<!-- Mandatory properties -->
 
+<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+<!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
+<sonar.organization>my_organization</sonar.organization>
+<sonar.projectKey>my_project</sonar.projectKey>
+
+<!-- Optional properties -->
+<sonar.buildString> [...] </sonar.buildString>
+</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
